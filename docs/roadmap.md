@@ -2,7 +2,7 @@
 
 Each milestone is a reviewable vertical slice. Do not begin source automation or document generation until the truth and audit foundations pass their criteria.
 
-## M0 — Architecture approval (current)
+## M0 — Architecture approval
 
 **Scope:** product, architecture, data, security, decisions, and roadmap documentation only.
 
@@ -13,6 +13,8 @@ Each milestone is a reviewable vertical slice. Do not begin source automation or
 **Scope:** Python package/CLI skeleton, dependency and tool configuration, privacy-safe ignores, configuration loading, typed domain primitives, logging/redaction, CI, and test fixtures.
 
 **Acceptance:** a fresh documented setup runs CLI help and tests; runtime/private paths cannot be committed accidentally; configuration fails clearly; no application feature is implied. **Validation:** unit tests, lint/type checks, secret scan, clean-install smoke test.
+
+**Status:** implemented and awaiting owner review. M2 has not started.
 
 ## M2 — Candidate truth store
 

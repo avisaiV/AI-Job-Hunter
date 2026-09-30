@@ -14,6 +14,23 @@
 | Observations retained behind canonical jobs | Deduplication does not destroy source evidence or discovery history |
 | AI is constrained analysis, never policy authority | Deterministic controls, schemas, evidence checks, and human review remain authoritative |
 | No automatic submission | Product invariant and safety boundary, not a configurable convenience |
+| Python 3.11 minimum with setuptools, `venv`, and `pip` | Supported across Windows and GitHub Actions without introducing a dependency manager |
+| Pydantic Settings with `AJH_` environment variables | Provides typed validation, safe defaults, optional `.env` loading, and clear errors |
+| Repository-local ignored private directories for the initial release | Simplifies a single-user setup while `.gitignore`, tests, and `doctor` reduce accidental commits |
+| Standard-library `argparse` and JSON console logging | Meets M1 needs without adding CLI or observability frameworks |
+| Ruff, strict mypy, pytest/coverage, and detect-secrets | A small, cross-platform quality and secret-scanning toolchain |
+
+## Owner decisions recorded for future milestones
+
+- Private candidate, template, runtime, raw, output, and log data initially live in
+  repository-local ignored directories. Git may contain only explicitly synthetic or redacted
+  examples.
+- A hosted AI provider is the likely M6 direction, but no provider, API dependency, credential,
+  or outbound-data policy is selected in M1.
+- M10 email ingestion should begin with exported synthetic/sample `.eml` files before any live
+  mailbox integration.
+- DOCX is the intended authoritative editable format in M8. Optional local PDF rendering or
+  visual comparison may be used for validation later.
 
 ## Assumptions to validate
 
@@ -44,10 +61,13 @@
 These are genuine product choices; none requires a secret now.
 
 1. **Privacy boundary for AI (needed by M6):** hosted provider, fully local model, or hybrid; if hosted, which candidate fields and job text may leave the machine and what retention policy is acceptable?
-2. **Mailbox access (needed by M10):** dedicated alert mailbox/folder via read-only IMAP/OAuth, or user-exported `.eml` files first? Exported files are the safer initial choice.
+2. **Mailbox access after file-based ingestion (needed by M10):** whether to add a dedicated
+   alert mailbox/folder through read-only IMAP/OAuth after exported `.eml` ingestion is proven.
 3. **Location policy (needed by M4):** acceptable commute areas/duration, minimum hybrid expectations, and treatment of fully remote roles based outside NSW/Australia.
 4. **Hard requirement policy (needed by M5):** which requirements (for example citizenship, work rights, clearance, licence, shifts) are absolute exclusions versus surfaced dealbreakers for review?
-5. **Profile/template privacy (needed by M2/M7):** should encrypted/private source files live inside ignored repository folders, or in an external user-data directory referenced by configuration?
-6. **Base document fidelity (needed by M8):** is DOCX the authoritative template and is optional local LibreOffice/PDF preview acceptable for visual validation?
+5. **Longer-term profile/template privacy (revisit after M2/M7):** whether ignored local paths
+   remain sufficient or should move to encrypted/external user-data storage.
+6. **Visual validation tooling (needed by M8):** whether optional local LibreOffice/PDF preview
+   is acceptable alongside authoritative DOCX templates.
 
 Decisions that can safely wait include notification channel, scheduler choice, and additional source/API priority. Record resolved choices here with date, context, and consequences rather than burying them in code.
