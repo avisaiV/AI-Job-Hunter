@@ -1,0 +1,37 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+
+# Python/editor/tool caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+.idea/
+.vscode/
+*.swp
+*~
+
+# Private candidate material and document templates
+/candidate/
+/templates/
+
+# Runtime data, imported payloads, generated documents, and logs
+/data/
+/raw/
+/output/
+/logs/
+/tmp/
+*.sqlite
+*.sqlite3
+*.db
+*.log
